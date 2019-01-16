@@ -7,12 +7,25 @@
     <body>
 
         <div align="left" style="margin-top:30px">
+            <h1>A simple Calculator</h1>
             <form method="POST" name = "form1">
-                <input type="text" name = "left" placeholder = "left"/>+
-                <input type="text" name = "right" placeholder = "right"/>
+                <input type="text" name = "num1" placeholder = "pls enter a number"/>+
+                <input type="text" name = "num2" placeholder = "pls enter a number"/>
                 <input type="submit" value = "submit"/>
             </form>
+            <div align="left" style="margin-top:30px" name="msg">{{ MSG }}</div>
             <div align="left" style="margin-top:30px" name="result">= <span>{{ RESULT }}</span></div>
+            <h1>A more powerful Calculator</h1>
+            <form method="POST" name = "form2">
+                <input type="text" name = "num1" placeholder = "pls enter a number"/>
+                <input type="text" name = "operator1" placeholder = "pls enter operator +/-"/>
+                <input type="text" name = "num2" placeholder = "pls enter a number"/>
+                <input type="text" name = "operator2" placeholder = "pls enter operator +/-"/>
+                <input type="text" name = "num3" placeholder = "pls enter a number"/>
+                <input type="submit" value = "submit"/>
+            </form>
         </div>
     </body>
 </html>
+
+<!--TODO: msg in red; get data from diff forms; text box wider; add one button to query db;-->
