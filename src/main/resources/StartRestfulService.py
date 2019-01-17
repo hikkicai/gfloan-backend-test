@@ -9,6 +9,7 @@ sql_query = "SELECT times,sum FROM add_data WHERE user_ip=%s"
 sql_update = "UPDATE add_data SET times=%s,sum=%s WHERE user_ip=%s"
 
 
+# 通过构建SQL语句进行数据库更新或者查询
 def update_db(ip, total):
     with db.cursor() as cur:
         cur.execute(sql_query, ip)
@@ -26,6 +27,9 @@ def index():
     return 'Calculator is up and running!'
 
 
+# 对于请求数据中不存在，类型不对，数据不全或者不符合范围内的返回400请求无效的状态码
+# 对于其他程序中的错误返回500状态码
+# 验证完毕后，进行计算更新DB并返回结果
 @app.route('/add-task/', methods=['POST'])
 def add_task():
     if not request.json or 'num1' not in request.json or 'num2' not in request.json:
@@ -44,6 +48,8 @@ def add_task():
         return jsonify({'result': total})
 
 
+# 通过SQL语句查询如果返回结果为空则返回计算次数为0加和为空
+# 否则返回SQL语句查询结果
 @app.route('/get-task/', methods=['GET'])
 def get_task():
     with db.cursor() as cur:
@@ -56,6 +62,9 @@ def get_task():
         return jsonify({'times': result[0], 'sum': result[1]})
 
 
+# 对于请求数据中不存在，类型不对，数据不全或者不符合范围内的返回400请求无效的状态码
+# 对于其他程序中的错误返回500状态码
+# 验证完毕后，进行计算更新DB并返回结果
 @app.route('/add-task-enhance/', methods=['POST'])
 def add_task_enhance():
     if not request.json:
