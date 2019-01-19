@@ -16,3 +16,5 @@
 > 测试用例请查看<src/test/resources/cucumberTest/CalculatorAPI.feature>
 > 被测源码请查看<src/main/resources/StartRestfulService.py>
 > 相关测试结果请查看<Test Results - Feature__CalculatorAPI.html>
+
+### 相关执行步骤请参考<STEPS.md>
